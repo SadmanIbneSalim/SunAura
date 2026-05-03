@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
+import PopularProducts from "@/components/PopularProducts";
 
 
 
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
         <Hero></Hero>
+        <PopularProducts></PopularProducts>
       
         <main className="flex-1">
           {children}

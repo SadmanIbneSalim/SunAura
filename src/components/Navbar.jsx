@@ -1,7 +1,19 @@
 
+import Link from "next/link";
 import { FaUserLarge } from "react-icons/fa6";
 
 const Navbar = () => {
+
+    const links= <>
+
+    <li><Link href="/">Home</Link></li>
+    <li><Link href="/Products">Products</Link></li>
+    
+   
+    
+    
+    </>
+
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm">
@@ -13,32 +25,14 @@ const Navbar = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+       {links}
       </ul>
     </div>
     <h1 className=" font-bold btn-ghost text-2xl">Sun<span className='text-yellow-600'>Aura</span></h1>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2 bg-base-100 w-40 z-1">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
+      {links}
     </ul>
   </div>
   <div className="navbar-end">
