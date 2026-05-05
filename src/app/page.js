@@ -1,7 +1,14 @@
-import Image from "next/image";
+
+import Hero from "@/components/Hero/Hero";
+import PopularProducts from "@/components/PopularProducts";
+
 
 export default function Home() {
   return (
-   <h1>hello homapage</h1>
+    <main>
+
+      <Hero></Hero>
+      <PopularProducts></PopularProducts>
+    </main>
   );
 }

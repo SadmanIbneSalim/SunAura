@@ -2,8 +2,8 @@ import React from 'react';
 
 const ProductPage = () => {
     return (
-        <div>
-            <h1>Products</h1>
+        <div className='max-w-[1140px] mx-auto bg-red-500 border'>
+            <h1 className='text-6xl'>Products</h1>
         </div>
     );
 };

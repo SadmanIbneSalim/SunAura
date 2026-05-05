@@ -7,7 +7,13 @@ const Cards = ({productData}) => {
         <div>
             <div className="card bg-base-100 w-96 shadow-sm">
   <figure>
-    <Image width={100} height={100} src={productData.image} alt="image"></Image>
+    <Image
+  width={400} 
+  height={300} 
+  src={`${productData.image}?w=400&q=80`} 
+  alt={productData.name}
+  className="w-full h-48 object-cover"
+/>
   </figure>
   <div className="card-body">
     <h2 className="card-title">
