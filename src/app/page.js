@@ -1,6 +1,7 @@
 
 import Hero from "@/components/Hero/Hero";
 import PopularProducts from "@/components/PopularProducts";
+import SummerCare from "@/components/SummerCare";
 
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
 
       <Hero></Hero>
       <PopularProducts></PopularProducts>
+      <SummerCare></SummerCare>
     </main>
   );
 }
