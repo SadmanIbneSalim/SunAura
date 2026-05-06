@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {  TbCurrencyTaka } from "react-icons/tb";
 
@@ -10,7 +11,7 @@ const Cards = ({ productData }) => {
           <Image
             width={400}
             height={300}
-            src={`${productData.image}?w=400&q=80`}
+            src={`${productData.image}`}
             alt={productData.name}
             className="w-full h-48 object-cover"
           />
@@ -27,7 +28,7 @@ const Cards = ({ productData }) => {
             <TbCurrencyTaka />
           </h3>
 
-          <button className="btn ">View More Details</button>
+          <Link href={`/Products/${productData.id}`}  className="btn ">View More Details</Link>
         </div>
       </div>
     </div>
