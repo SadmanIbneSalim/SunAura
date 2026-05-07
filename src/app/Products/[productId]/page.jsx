@@ -5,7 +5,7 @@ const ProductDetailsPage = async ({ params }) => {
   const { productId } = await params; 
 
   const res = await fetch("http://localhost:3000/Data.json", {
-    cache: "force-cache",
+    cache: "no-store",
   });
 
   const data = await res.json();
@@ -26,7 +26,7 @@ const ProductDetailsPage = async ({ params }) => {
               height={600}
               src={product.image}
               alt={product.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-auto object-cover"
             />
           </figure>
         </div>

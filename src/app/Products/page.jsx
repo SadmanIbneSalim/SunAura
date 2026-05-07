@@ -3,7 +3,7 @@ import Cards from "@/components/Cards";
 
 
 const ProductPage = async() => {
-    const productPromise=await fetch('http://localhost:3000/Data.json',{ cache: 'force-cache' });
+    const productPromise=await fetch('http://localhost:3000/Data.json',{ cache: 'no-store' });
     const productsData=await productPromise.json()
 
     return (
