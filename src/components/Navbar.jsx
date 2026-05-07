@@ -74,40 +74,33 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end">
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
+         <div className="navbar-end gap-3">
+          {user ? (
+            
+            <>
+              <Link href={"/profile"}>
+                <FaUserLarge className="text-orange-500 text-xl cursor-pointer" />
+              </Link>
+              <button
+                onClick={() => authClient.signOut()}
+                className="btn btn-sm bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold"
+              >
+                Sign Out
+              </button>
+            </>
+          ) : (
+            
+            <Link
+              href={"/authentication/login"}
+              className="btn btn-sm bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold"
             >
-              <div className="w-10 flex justify-center items-center rounded-full">
-                <FaUserLarge />
-              </div>
-            </div>
-            <h1>hello,{user?.name}</h1>
-            <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <Link href={'/authentication/login'}>Login</Link>
-              </li>
-          
-            </ul>
-          </div>
+              Login
+            </Link>
+          )}
         </div>
       </div>
-    </div>
+      </div>
+    
   );
 };
 

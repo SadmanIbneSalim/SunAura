@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const SignUpPage = () => {
-  const router=useRouter();
+  const router = useRouter();
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const name = e.target.name.value;
@@ -16,26 +16,27 @@ const SignUpPage = () => {
 
     // console.log("Name:", name, "Email:", email, "Password:", password);
 
-    
-const { data, error } = await authClient.signUp.email({
-        email, 
-        password, 
-        name, 
-        
-        callbackURL: "/" 
-    },
-  {
+    const { data, error } = await authClient.signUp.email(
+      {
+        email,
+        password,
+        name,
+
+        // callbackURL: "/"
+      },
+      {
         onRequest: (ctx) => {
-            //show loading
+          //show loading
         },
         onSuccess: (ctx) => {
-            router.push('/')
+          router.push("/authentication/login");
         },
         onError: (ctx) => {
-            // display the error message
-            alert(ctx.error.message);
+          // display the error message
+          alert(ctx.error.message);
         },
-})
+      },
+    );
 
     // console.log({data , error});
   };
@@ -65,6 +66,8 @@ const { data, error } = await authClient.signUp.email({
             className="input w-full"
             placeholder="Email"
           />
+          <label className="label text-lg text-black font-bold">Image</label>
+          <input type="file" className="file-input file-input-warning" />
 
           <label className="label text-lg text-black font-bold">Password</label>
           <input
