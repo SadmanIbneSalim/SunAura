@@ -1,10 +1,18 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaUserLarge } from "react-icons/fa6";
 
 const Navbar = () => {
   const pathname = usePathname();
+
+
+    const { 
+        data: session, 
+        
+    } = authClient.useSession() ;
+    const user=session?.user
 
   const links = (
     <>
@@ -77,6 +85,7 @@ const Navbar = () => {
                 <FaUserLarge />
               </div>
             </div>
+            <h1>hello,{user?.name}</h1>
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -91,8 +100,9 @@ const Navbar = () => {
                 <a>Settings</a>
               </li>
               <li>
-                <a>Logout</a>
+                <Link href={'/authentication/login'}>Login</Link>
               </li>
+          
             </ul>
           </div>
         </div>

@@ -1,40 +1,41 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React from "react";
 
-const LogInPage = () => {
-//   const router = useRouter();
+const SignUpPage = () => {
+  const router=useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
+    const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     // console.log("Name:", name, "Email:", email, "Password:", password);
 
-    const { data, error } = await authClient.signIn.email(
-      {
-        email,
-        password,
-
-        callbackURL: "/",
-      },
-      {
+    
+const { data, error } = await authClient.signUp.email({
+        email, 
+        password, 
+        name, 
+        
+        callbackURL: "/" 
+    },
+  {
         onRequest: (ctx) => {
-          //show loading
+            //show loading
         },
         onSuccess: (ctx) => {
-        //   router.push("/");
+            router.push('/')
         },
         onError: (ctx) => {
-          // display the error message
-          alert(ctx.error.message);
+            // display the error message
+            alert(ctx.error.message);
         },
-      },
-    );
+})
 
     // console.log({data , error});
   };
@@ -44,8 +45,17 @@ const LogInPage = () => {
       <form onSubmit={handleSubmit}>
         <fieldset className="fieldset border-amber-300 mx-auto my-10 rounded-box max-w-xl border gap-4 p-4">
           <legend className="fieldset-legend text-2xl bg-gradient-to-r from-orange-500 to-red-700 bg-clip-text text-transparent">
-            Login
+            SignUp
           </legend>
+
+          <label className="label text-lg text-black font-bold">Name</label>
+          <input
+            type="text"
+            name="name"
+            required
+            className="input w-full"
+            placeholder="Your Name"
+          />
 
           <label className="label text-lg text-black font-bold">Email</label>
           <input
@@ -69,14 +79,14 @@ const LogInPage = () => {
             type="submit"
             className="btn bg-gradient-to-r from-orange-500 to-red-500 mt-4 text-lg text-white font-bold"
           >
-            Login
+            SignUp
           </button>
 
           <hr className="text-neutral-300 pt-5" />
           <h1 className="text-center text-lg">
-            Do not have any account?{" "}
+            Already have an account?{" "}
             <span className="link link-primary">
-              <Link href={"/authentication/signup"}>SignUp</Link>
+              <Link href={"/authentication/login"}>Login</Link>
             </span>
           </h1>
         </fieldset>
@@ -85,4 +95,4 @@ const LogInPage = () => {
   );
 };
 
-export default LogInPage;
+export default SignUpPage;
