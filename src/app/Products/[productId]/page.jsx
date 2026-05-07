@@ -4,7 +4,7 @@ import React from "react";
 const ProductDetailsPage = async ({ params }) => {
   const { productId } = await params; 
 
-  const res = await fetch("http://localhost:3000/Data.json", {
+  const res = await fetch("https://sun-aura-0001.vercel.app/Data.json", {
     cache: "no-store",
   });
 
