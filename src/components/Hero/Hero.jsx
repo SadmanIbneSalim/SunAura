@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
+import 'animate.css';
 
 export default function HeroSection() {
   return (
     <div
-  className="hero min-h-[100vh] bg-cover bg-center"
+  className="hero min-h-[75vh] bg-cover bg-center"
   style={{ backgroundImage: "url('/Banner.png')" }}
 >
   <div className="hero-overlay bg-black/50"></div>
@@ -14,7 +15,7 @@ export default function HeroSection() {
     <div className="text-center md:text-left text-white max-w-xl space-y-4">
 
       <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-        <span className="bg-amber-500 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
+        <span className="bg-amber-500 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold animate__animated animate__swing">
           ☀️ SUMMER SALE 50% OFF
         </span>
 
@@ -28,11 +29,11 @@ export default function HeroSection() {
       </p>
 
       <h1 className="font-bold leading-tight">
-        <span className="block text-4xl sm:text-5xl md:text-6xl">
+        <span className="block text-4xl sm:text-5xl md:text-6xl animate__animated animate__backInRight">
           Discover Your
         </span>
 
-        <span className="block text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+        <span className="block text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent animate__animated animate__backInLeft">
           Next Favorite
         </span>
       </h1>

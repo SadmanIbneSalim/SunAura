@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import {  TbCurrencyTaka } from "react-icons/tb";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 const Cards = ({ productData }) => {
   return (
@@ -28,7 +28,9 @@ const Cards = ({ productData }) => {
             <TbCurrencyTaka />
           </h3>
 
-          <Link href={`/Products/${productData.id}`}  className="btn ">View More Details</Link>
+          <Link href={`/Products/${productData.id}`} className="btn ">
+            View More Details
+          </Link>
         </div>
       </div>
     </div>

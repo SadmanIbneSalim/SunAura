@@ -1,5 +1,6 @@
 "use client";
 
+
 import UpdateUserInfo from "@/components/UpdateUserInfo";
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";

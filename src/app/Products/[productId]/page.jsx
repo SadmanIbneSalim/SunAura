@@ -1,6 +1,11 @@
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "Product Details | CutuAura",
+  description: "Details of the products",
+};
+
 const ProductDetailsPage = async ({ params }) => {
   const { productId } = await params; 
 
