@@ -12,14 +12,16 @@ const SignUpPage = () => {
 
     const name = e.target.name.value;
     const email = e.target.email.value;
+    const image = e.target.image.value;
     const password = e.target.password.value;
 
-    // console.log("Name:", name, "Email:", email, "Password:", password);
+   
 
     const { data, error } = await authClient.signUp.email(
       {
         email,
         password,
+        image,
         name,
 
         // callbackURL: "/"
@@ -66,8 +68,16 @@ const SignUpPage = () => {
             className="input w-full"
             placeholder="Email"
           />
+
           <label className="label text-lg text-black font-bold">Image</label>
-          <input type="file" className="file-input file-input-warning" />
+          <input
+            type="text"
+            name="image"
+            required
+            className="input w-full"
+            placeholder="Image URL"
+          />
+          
 
           <label className="label text-lg text-black font-bold">Password</label>
           <input

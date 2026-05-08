@@ -3,6 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 // import { useRouter } from "next/navigation";
 import React from "react";
+import { GrGoogle } from "react-icons/gr";
 
 const LogInPage = () => {
 //   const router = useRouter();
@@ -39,6 +40,13 @@ const LogInPage = () => {
     // console.log({data , error});
   };
 
+ const signIn = async () => {
+  const data = await authClient.signIn.social({
+    provider: "google",
+    callbackURL: "/",
+  });
+};
+
   return (
     <div className="bg-base-200 p-10">
       <form onSubmit={handleSubmit}>
@@ -71,6 +79,9 @@ const LogInPage = () => {
           >
             Login
           </button>
+          <p className="text-center">Or</p>
+
+          <button onClick={signIn} type="button" className="btn btn-outline"><GrGoogle></GrGoogle>Sign in with  Google</button>
 
           <hr className="text-neutral-300 pt-5" />
           <h1 className="text-center text-lg">
@@ -81,6 +92,7 @@ const LogInPage = () => {
           </h1>
         </fieldset>
       </form>
+      
     </div>
   );
 };

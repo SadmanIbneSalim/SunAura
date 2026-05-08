@@ -78,7 +78,7 @@ const Navbar = () => {
           {user ? (
             
             <>
-              <Link href={"/profile"}>
+              <Link href={"/Profile"}>
                 <FaUserLarge className="text-orange-500 text-xl cursor-pointer" />
               </Link>
               <button
