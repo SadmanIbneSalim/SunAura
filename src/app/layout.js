@@ -33,14 +33,14 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Toaster position="top-right" />
         
-        {/* <Navbar></Navbar>
+        <Navbar></Navbar>
         
         
       
         <main className="flex-1">
           {children}
         </main>
-         */}
+        
         <Footer></Footer>
 
         
