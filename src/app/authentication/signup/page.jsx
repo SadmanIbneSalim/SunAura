@@ -95,6 +95,8 @@ const SignUpPage = () => {
             SignUp
           </button>
 
+          <button className="btn" type="reset">Clear</button>
+
           <hr className="text-neutral-300 pt-5" />
           <h1 className="text-center text-lg">
             Already have an account?{" "}

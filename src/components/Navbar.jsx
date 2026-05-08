@@ -1,18 +1,15 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaUserLarge } from "react-icons/fa6";
+
 
 const Navbar = () => {
   const pathname = usePathname();
 
-
-    const { 
-        data: session, 
-        
-    } = authClient.useSession() ;
-    const user=session?.user
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
 
   const links = (
     <>
@@ -74,12 +71,30 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-         <div className="navbar-end gap-3">
+        <div className="navbar-end gap-3">
           {user ? (
-            
             <>
               <Link href={"/Profile"}>
-                <FaUserLarge className="text-orange-500 text-xl cursor-pointer" />
+                {user.image ? (
+                  <div className="avatar">
+                    <div className="ring-primary ring-offset-base-100 w-7 rounded-full ring-2 ring-offset-2">
+                      <Image
+                        src={user.image}
+                        alt={user.name}
+                        height={50}
+                        width={50}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="avatar avatar-placeholder">
+                    <div className="w-7 rounded-full ring-2 ring-primary ring-offset-2 ring-offset-base-100 bg-orange-500 text-white">
+                      <span className="text-xs font-bold">
+                        {user.name?.charAt(0).toUpperCase()}
+                      </span>
+                    </div>
+                  </div>
+                )}
               </Link>
               <button
                 onClick={() => authClient.signOut()}
@@ -89,7 +104,6 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            
             <Link
               href={"/authentication/login"}
               className="btn btn-sm bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold"
@@ -99,8 +113,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      </div>
-    
+    </div>
   );
 };
 

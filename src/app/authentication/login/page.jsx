@@ -79,6 +79,9 @@ const LogInPage = () => {
           >
             Login
           </button>
+          <button className="btn" type="reset">Clear</button>
+
+
           <p className="text-center">Or</p>
 
           <button onClick={signIn} type="button" className="btn btn-outline"><GrGoogle></GrGoogle>Sign in with  Google</button>

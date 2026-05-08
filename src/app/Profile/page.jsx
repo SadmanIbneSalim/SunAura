@@ -1,14 +1,29 @@
 "use client";
 
+import UpdateUserInfo from "@/components/UpdateUserInfo";
+import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 
 const ProfilePage = () => {
-  const user = {
-    name: "Sadman Ibne Salim",
-    email: "sadman@gmail.com",
-    photo:
-      "https://i.ibb.co/4pDNDk1/avatar.png",
-  };
+   const { data: session, isPending } = authClient.useSession();
+  const user = session?.user;
+
+  
+  if (isPending) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-xl font-bold">Please log in to view your profile.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-orange-200 to-red-200 flex items-center justify-center px-4">
@@ -17,38 +32,46 @@ const ProfilePage = () => {
         
         <div className="card-body items-center text-center p-10">
 
-          {/* Profile Image */}
-          <div className="avatar mb-5">
-            <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4">
-              <Image
-                src={user.photo}
-                alt="Profile"
-                width={150}
-                height={150}
-                className="object-cover"
-              />
-            </div>
-          </div>
+         {/* Profile Image */}
+<div className="avatar mb-5">
+  {user.image ? (
+    // image থাকলে দেখাবে
+    <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4">
+      <Image
+        src={user?.image}
+        alt="Profile"
+        width={150}
+        height={150}
+        className="object-cover"
+      />
+    </div>
+  ) : (
+    // image না থাকলে নামের প্রথম letter দেখাবে
+    <div className="avatar avatar-placeholder">
+      <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 bg-orange-500 text-white">
+        <span className="text-4xl font-bold">
+          {user.name?.charAt(0).toUpperCase()}
+        </span>
+      </div>
+    </div>
+  )}
+</div>
 
           
           <h2 className="text-3xl font-bold">
-            {user.name}
+            {user?.name}
           </h2>
 
          
           <p className="text-base-content/70 mt-2">
-            {user.email}
+            {user?.email}
           </p>
 
           
           <div className="flex gap-3 mt-6">
-            <button className="btn btn-primary rounded-full">
-              Edit Profile
-            </button>
+            
 
-            <button  className="btn btn-outline rounded-full">
-              Sign out
-            </button>
+            <UpdateUserInfo></UpdateUserInfo>
           </div>
 
         </div>
