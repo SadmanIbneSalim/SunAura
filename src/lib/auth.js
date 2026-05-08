@@ -1,24 +1,24 @@
-import { betterAuth } from "better-auth";
-import { MongoClient } from "mongodb";
-import { mongodbAdapter } from "better-auth/adapters/mongodb";
+// import { betterAuth } from "better-auth";
+// import { MongoClient } from "mongodb";
+// import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
-const client = new MongoClient(process.env.AUTH_DB_URI);
+// const client = new MongoClient(process.env.AUTH_DB_URI);
 
-// await client.connect();
+// // await client.connect();
 
-const db = client.db("CutuAura");
+// const db = client.db("CutuAura");
 
-export const auth = betterAuth({
-  emailAndPassword: {
-    enabled: true,
-  },
-  socialProviders: {
-        google: { 
-            clientId: process.env.GOOGLE_CLIENT_ID ,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET 
-        }, 
-    },
-  database: mongodbAdapter(db, {
-    client,
-  }),
-});
+// export const auth = betterAuth({
+//   emailAndPassword: {
+//     enabled: true,
+//   },
+//   socialProviders: {
+//         google: { 
+//             clientId: process.env.GOOGLE_CLIENT_ID ,
+//             clientSecret: process.env.GOOGLE_CLIENT_SECRET 
+//         }, 
+//     },
+//   database: mongodbAdapter(db, {
+//     client,
+//   }),
+// });

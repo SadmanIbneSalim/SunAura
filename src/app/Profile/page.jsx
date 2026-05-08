@@ -32,10 +32,9 @@ const ProfilePage = () => {
         
         <div className="card-body items-center text-center p-10">
 
-         {/* Profile Image */}
+        
 <div className="avatar mb-5">
   {user.image ? (
-    // image থাকলে দেখাবে
     <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4">
       <Image
         src={user?.image}
@@ -46,7 +45,6 @@ const ProfilePage = () => {
       />
     </div>
   ) : (
-    // image না থাকলে নামের প্রথম letter দেখাবে
     <div className="avatar avatar-placeholder">
       <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 bg-orange-500 text-white">
         <span className="text-4xl font-bold">

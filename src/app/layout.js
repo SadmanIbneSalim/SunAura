@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
 
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -30,14 +31,16 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar></Navbar>
+        <Toaster position="top-right" />
+        
+        {/* <Navbar></Navbar>
         
         
       
         <main className="flex-1">
           {children}
         </main>
-        
+         */}
         <Footer></Footer>
 
         
