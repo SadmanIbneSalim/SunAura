@@ -12,7 +12,7 @@ import { GrGoogle } from "react-icons/gr";
 const LogInPage = () => {
 //   const router = useRouter();
 const searchParams=useSearchParams();
-const callbackURL=searchParams.get("callbackUrl")
+const callbackURL = searchParams.get("callbackUrl") || "/"; 
 
 console.log(callbackURL);
 
@@ -30,7 +30,7 @@ console.log(callbackURL);
         email,
         password,
 
-        callbackURL: callbackURL,
+        callbackURL: callbackURL || "/", 
       },
       {
         onRequest: (ctx) => {
@@ -53,7 +53,7 @@ console.log(callbackURL);
  const signIn = async () => {
   const data = await authClient.signIn.social({
     provider: "google",
-    callbackURL: callbackURL,
+    callbackURL: callbackURL || "/", 
   });
 };
 
