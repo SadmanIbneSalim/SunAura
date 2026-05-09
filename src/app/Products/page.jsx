@@ -6,7 +6,7 @@ export const metadata = {
 };
 
 const ProductPage = async() => {
-    const productPromise=await fetch('https://sun-aura-0001.vercel.app/Data.json',{ cache: 'no-store' });
+    const productPromise=await fetch('https://sun-aura.vercel.app/Data.json',{ cache: 'no-store' });
     const productsData=await productPromise.json()
 
     return (

@@ -9,7 +9,7 @@ export const metadata = {
 const ProductDetailsPage = async ({ params }) => {
   const { productId } = await params; 
 
-  const res = await fetch("https://sun-aura-0001.vercel.app/Data.json", {
+  const res = await fetch("https://sun-aura.vercel.app/Data.json", {
     cache: "no-store",
   });
 

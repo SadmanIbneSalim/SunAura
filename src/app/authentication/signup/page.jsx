@@ -58,7 +58,7 @@ const SignUpPage = () => {
       <form onSubmit={handleSubmit}>
         <fieldset className="fieldset border-amber-300 mx-auto my-10 rounded-box max-w-xl border gap-4 p-4">
           <legend className="fieldset-legend text-2xl bg-gradient-to-r from-orange-500 to-red-700 bg-clip-text text-transparent">
-            SignUp
+            Register Yourself
           </legend>
 
           <label className="label text-lg text-black font-bold">Name</label>
