@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 export const metadata = {
-  title: "Product Details | CutuAura",
+  title: "Product Details | SunAura",
   description: "Details of the products",
 };
 

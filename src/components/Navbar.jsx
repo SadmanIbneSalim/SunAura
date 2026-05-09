@@ -74,7 +74,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link href={"/"} className=" font-bold btn-ghost text-2xl">
-            Cutu<span className="text-orange-600">Aura</span>
+            Sun<span className="text-orange-600">Aura</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

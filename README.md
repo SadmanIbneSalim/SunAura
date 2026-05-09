@@ -1,8 +1,8 @@
-# CutuAura
+# SunAura
 
 ## Purpose
 
-CutuAura is a modern beauty and lifestyle e-commerce web application where users can browse products, manage their profile, and securely sign in using email or Google authentication.
+SunAura is a modern beauty and lifestyle e-commerce web application where users can browse products, manage their profile, and securely sign in using email or Google authentication.
 
 ## Live URL
 

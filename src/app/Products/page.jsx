@@ -1,7 +1,7 @@
 import Cards from "@/components/Cards";
 
 export const metadata = {
-  title: "Products | CutuAura",
+  title: "Products | SunAura",
   description: "beautiful and most important products for summer  ",
 };
 
