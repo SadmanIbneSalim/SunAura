@@ -1,6 +1,7 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import {  useSearchParams } from "next/navigation";
 // import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
@@ -10,6 +11,10 @@ import { GrGoogle } from "react-icons/gr";
 
 const LogInPage = () => {
 //   const router = useRouter();
+const searchParams=useSearchParams();
+const callbackURL=searchParams.get("callbackUrl")
+
+console.log(callbackURL);
 
 
   const handleSubmit = async (e) => {
@@ -25,7 +30,7 @@ const LogInPage = () => {
         email,
         password,
 
-        callbackURL: "/",
+        callbackURL: callbackURL,
       },
       {
         onRequest: (ctx) => {
@@ -48,7 +53,7 @@ const LogInPage = () => {
  const signIn = async () => {
   const data = await authClient.signIn.social({
     provider: "google",
-    callbackURL: "/",
+    callbackURL: callbackURL,
   });
 };
 
